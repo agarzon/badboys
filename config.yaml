@@ -1,0 +1,14 @@
+# List of URLs to download bad IPs from
+badboys_urls:
+  - https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level1.netset
+  - https://cinsscore.com/list/ci-badguys.txt
+  - https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt
+  - https://raw.githubusercontent.com/ipverse/rir-ip/master/country/cn/ipv4-aggregated.txt
+
+# List of IPs to whitelist
+whitelist_ips:
+  - 127.0.0.1/8
+  - ::1
+
+# Name of the ipset to create and use
+ipset_name: badboys
