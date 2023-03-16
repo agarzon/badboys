@@ -1,4 +1,9 @@
+
 # Badboys - A simple python script to block bad IP addresses
+
+<p align="center">
+  <img alt="badboys" title="badboys" src="https://user-images.githubusercontent.com/339828/225473301-c80d16a2-7df7-408e-90eb-8888aef9e25c.svg" width="450">
+</p>
 
 A very simple python script to get bad IP addresses from a different URL and block them with iptable using ipset.
 
