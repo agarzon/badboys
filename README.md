@@ -8,6 +8,8 @@ A very simple python script to get bad IP addresses from a different URL and blo
 
 This script downloads bad IP addresses from different sources, removes whitelisted IPs from the list (supports subnet range CIDR), and then adds the remaining bad IPs to an ipset using the ipset command. It also flushes the existing ipset before adding the new bad IPs to it.
 
+Your machine public IP address is automatically added to the whitelist.
+
 This script was inspired by: https://github.com/trick77/ipset-blacklist which I used for many many years.
 
 But I felt that I want to redo it from scratch and make it more simple and easy to use but with Python.

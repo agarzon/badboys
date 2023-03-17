@@ -43,6 +43,14 @@ for url in config['badboys_urls']:
     except:
         pass
 
+# Add public IP to whitelist_ips if not already present
+try:
+    public_ip = requests.get('https://api.ipify.org').text
+    if public_ip not in config['whitelist_ips']:
+        config['whitelist_ips'].append(public_ip)
+except:
+    print('Could not retrieve public IP address')
+
 # Remove whitelisted IPs from bad_ips
 for ip in config['whitelist_ips']:
     if '/' in ip:
