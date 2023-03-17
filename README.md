@@ -1,4 +1,3 @@
-
 # Badboys - A simple python script to block bad IP addresses
 
 <p align="center">
@@ -25,7 +24,7 @@ The Dockerfile was used for me only during the development phase and it is not n
 
 # Usage
 
-Edit the config file and then run the script with:
+Create your own config.yaml file based on sample.config.yaml and then run the script with:
 
 `python3 badboys.py`
 
