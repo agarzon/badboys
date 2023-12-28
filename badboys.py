@@ -85,18 +85,30 @@ def main():
     try:
         is_installed('ipset')
         is_installed('iptables')
+        print('ipset and iptables are installed')
 
         config = load_config('config.yaml')
-        create_ipset(config['ipset_name'])
+        print(f"Loaded configuration: {config}")
 
+        create_ipset(config['ipset_name'])
+        print(f"IP set '{config['ipset_name']}' created")
+
+        print('Retrieving bad IP addresses...')
         bad_ips = get_bad_ips(config['badboys_urls'])
+
         public_ip = retrieve_public_ip()
         if public_ip and public_ip not in config['whitelist_ips']:
             config['whitelist_ips'].append(public_ip)
+        print(f"Public IP address: {public_ip}")
 
         filtered_ips = [ip for ip in bad_ips if ip not in config['whitelist_ips']]
+        print(f"Filtered {len(bad_ips) - len(filtered_ips)} whitelisted IPs")
+
         update_ipset(config['ipset_name'], filtered_ips)
+        print(f"IP set '{config['ipset_name']}' updated")
+
         update_iptables(config['ipset_name'])
+        print('iptables rules updated')
 
         print(subprocess.check_output(f"ipset list {config['ipset_name']} | grep 'Number of entries'", shell=True).decode('utf-8').strip())
 
