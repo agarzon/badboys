@@ -88,7 +88,7 @@ def main():
         print('ipset and iptables are installed')
 
         config = load_config('config.yaml')
-        print(f"Loaded configuration: {config}")
+        print(f"Loaded configuration: config.yaml")
 
         create_ipset(config['ipset_name'])
         print(f"IP set '{config['ipset_name']}' created")
@@ -102,10 +102,10 @@ def main():
         print(f"Public IP address: {public_ip}")
 
         filtered_ips = [ip for ip in bad_ips if ip not in config['whitelist_ips']]
-        print(f"Filtered {len(bad_ips) - len(filtered_ips)} whitelisted IPs")
+        print(f"Number of bad IPs: {len(bad_ips)}")
 
+        print(f"IPset '{config['ipset_name']}' updating...")
         update_ipset(config['ipset_name'], filtered_ips)
-        print(f"IP set '{config['ipset_name']}' updated")
 
         update_iptables(config['ipset_name'])
         print('iptables rules updated')
