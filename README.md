@@ -24,6 +24,10 @@ The Dockerfile was used for me only during the development phase and it is not n
     - ipset
     - iptables
 
+# Imstall dependencies
+
+`pip3 install -r requirements.txt`
+
 # Usage
 
 Create your own config.yaml file based on sample.config.yaml and then run the script with:
